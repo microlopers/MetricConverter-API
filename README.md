@@ -1,4 +1,4 @@
-# Metric Converter API
+# MetricConverter-API
 
 API for conversion from/to metric system. 
 
