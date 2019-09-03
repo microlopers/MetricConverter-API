@@ -1,14 +1,10 @@
 package com.microlopers.conversion.metric.control;
 
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import com.microlopers.conversion.metric.entity.LengthResult;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * @author Dalibor Adamus
@@ -16,17 +12,35 @@ import java.math.BigDecimal;
 @Service
 public class LengthRepository {
 
-    public BigDecimal convertKilometers(BigDecimal value) {
-        return value;
+    public LengthResult convertKilometers(BigDecimal value, int scale, RoundingMode roundingMode) {
+        LengthResult result = new LengthResult();
+
+        result.setInches(value.multiply(BigDecimal.valueOf(39370)).setScale(scale, roundingMode));
+        result.setFeet(value.multiply(BigDecimal.valueOf(3280.8)).setScale(scale, roundingMode));
+        result.setYards(value.multiply(BigDecimal.valueOf(1093.6)).setScale(scale, roundingMode));
+        result.setMiles(value.multiply(BigDecimal.valueOf(0.62137)).setScale(scale, roundingMode));
+        result.setMillimeters(value.multiply(BigDecimal.valueOf(1000000)).setScale(scale, roundingMode));
+        result.setCentimeters(value.multiply(BigDecimal.valueOf(100000)).setScale(scale, roundingMode));
+        result.setDecimeters(value.multiply(BigDecimal.valueOf(10000)).setScale(scale, roundingMode));
+        result.setMeters(value.multiply(BigDecimal.valueOf(1000)).setScale(scale, roundingMode));
+        result.setKilometers(value.setScale(scale, roundingMode));
+
+        return result;
     }
 
-    @GetMapping("/meters/{value}")
-    @ApiOperation(value = "Convert meters", response = BigDecimal.class)
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successfully converted")
-        }
-    )
-    public BigDecimal convertMeters(@ApiParam(value = "Value in meters", example = "125.25", required = true) @PathVariable("value") BigDecimal value) {
-        return value;
+    public LengthResult convertMeters(BigDecimal value, int scale, RoundingMode roundingMode) {
+        LengthResult result = new LengthResult();
+
+        result.setInches(value.multiply(BigDecimal.valueOf(39.370)).setScale(scale, roundingMode));
+        result.setFeet(value.multiply(BigDecimal.valueOf(3.2808)).setScale(scale, roundingMode));
+        result.setYards(value.multiply(BigDecimal.valueOf(1.0936)).setScale(scale, roundingMode));
+        result.setMiles(value.multiply(BigDecimal.valueOf(0.00062137)).setScale(scale, roundingMode));
+        result.setMillimeters(value.multiply(BigDecimal.valueOf(1000)).setScale(scale, roundingMode));
+        result.setCentimeters(value.multiply(BigDecimal.valueOf(100)).setScale(scale, roundingMode));
+        result.setDecimeters(value.multiply(BigDecimal.valueOf(10)).setScale(scale, roundingMode));
+        result.setMeters(value.setScale(scale, roundingMode));
+        result.setKilometers(value.multiply(BigDecimal.valueOf(0.001)).setScale(scale, roundingMode));
+
+        return result;
     }
 }
