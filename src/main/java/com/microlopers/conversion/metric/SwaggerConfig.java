@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
+import springfox.documentation.service.Tag;
 import springfox.documentation.service.VendorExtension;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
@@ -33,6 +34,7 @@ public class SwaggerConfig {
                 .apiInfo(DEFAULT_API_INFO)
                 // Remove basic-error-controller, operation-handler and web-mvc-links-handler from Swagger UI
                 .select().apis(Predicates.not(RequestHandlerSelectors.basePackage("org.springframework.boot")))
-                .build();
+                .build()
+                .tags(new Tag("Length", "Conversion to various length units"));
     }
 }

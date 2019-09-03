@@ -14,7 +14,7 @@ import java.math.RoundingMode;
  */
 @RestController
 @RequestMapping("/length")
-@Api(tags = "Length Converter")
+@Api(tags = "Length")
 public class LengthResource {
 
     private static final int DEFAULT_SCALE = 20;
