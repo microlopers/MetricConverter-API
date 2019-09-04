@@ -8,25 +8,25 @@ public class LengthResult {
 
     /* Metric System */
     @ApiModelProperty(example = "1000000", position = 1)
-    BigDecimal millimeters;
+    private BigDecimal millimeters;
     @ApiModelProperty(example = "100000", position = 2)
-    BigDecimal centimeters;
+    private BigDecimal centimeters;
     @ApiModelProperty(example = "10000", position = 3)
-    BigDecimal decimeters;
+    private BigDecimal decimeters;
     @ApiModelProperty(example = "1000", position = 4)
-    BigDecimal meters;
+    private BigDecimal meters;
     @ApiModelProperty(example = "1", position = 5)
-    BigDecimal kilometers;
+    private BigDecimal kilometers;
 
     /* Imperial and US customary measurement systems */
     @ApiModelProperty(example = "39370", position = 6)
-    BigDecimal inches;
+    private BigDecimal inches;
     @ApiModelProperty(example = "3280.8", position = 7)
-    BigDecimal feet;
+    private BigDecimal feet;
     @ApiModelProperty(example = "1093.6", position = 8)
-    BigDecimal yards;
+    private BigDecimal yards;
     @ApiModelProperty(example = "0.62137", position = 9)
-    BigDecimal miles;
+    private BigDecimal miles;
 
     public BigDecimal getMillimeters() {
         return millimeters;

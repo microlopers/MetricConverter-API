@@ -35,6 +35,9 @@ public class SwaggerConfig {
                 // Remove basic-error-controller, operation-handler and web-mvc-links-handler from Swagger UI
                 .select().apis(Predicates.not(RequestHandlerSelectors.basePackage("org.springframework.boot")))
                 .build()
-                .tags(new Tag("Length", "Conversion to various length units"));
+                .tags(
+                        new Tag("Length", "Conversion to various length units"),
+                        new Tag("Temperature", "Conversion to various temperature units")
+                );
     }
 }
