@@ -2,7 +2,7 @@
 
 API for conversion from/to metric system. 
 
-## Getting Started
+## Run Application
 Use following command to run application:
 ```
 gradle bootRun
