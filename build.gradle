@@ -28,7 +28,7 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	// Unit tests using JUnit 5
+	// Tests using JUnit 5
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'junit', module: 'junit' //by both name and group
 	}
@@ -45,6 +45,13 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}
+
+// SonarQube dependencies to avoid warnings in console -> Classes not found during the analysis : [javax.annotation.meta.When]
+sonarqube {
+	dependencies {
+		compile "org.joda:joda-convert:1.2", "com.google.code.findbugs:jsr305:3.0.0"
+	}
 }
 
 
