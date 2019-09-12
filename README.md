@@ -21,7 +21,7 @@ gradle test sonarqube
 ```
 
 ### SonarQube in Docker 
-If you have no SonarQube installed locally, run following command to start SonarQube container in local Docker:
+If you have no SonarQube installed locally, run following command to start SonarQube container in your local Docker:
 ```
 docker run -d --name sonarqube -p 9000:9000 --restart unless-stopped sonarqube:latest
 ```
